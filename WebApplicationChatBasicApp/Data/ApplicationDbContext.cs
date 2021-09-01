@@ -14,14 +14,17 @@ namespace WebApplicationChatBasicApp.Data
         {
         }
 
-        public object Messages { get; internal set; }
+       
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<Message>().HasOne<AppUser>(a => a.Sender)
+            builder.Entity<Message>()
+                .HasOne<AppUser>(a => a.Sender)
                 .WithMany(k => k.Messages)
             .HasForeignKey(j => j.UserID);
         }
+
+        public DbSet<Message> Messages { get; set; }
     }
 }
