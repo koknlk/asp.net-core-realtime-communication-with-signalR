@@ -16,12 +16,13 @@ namespace WebApplicationChatBasicApp.Controllers
         public readonly ApplicationDbContext _context;
         public readonly UserManager<AppUser> _userManager;
 
-
+        //DB context
         public HomeController(ApplicationDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
             _userManager = userManager;
         }
+        //message call async await
         public async Task<IActionResult> Index()
         {
             var currentUser = await _userManager.GetUserAsync(User);
@@ -32,7 +33,8 @@ namespace WebApplicationChatBasicApp.Controllers
             var messages = await _context.Messages.ToListAsync();
             return View();
         }
-
+        
+        //User communication async await
         public async Task<IActionResult> Create(Message message)
         {
             if (ModelState.IsValid)
@@ -46,7 +48,7 @@ namespace WebApplicationChatBasicApp.Controllers
             }
             return Error();
         }
-
+        //Catch error
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
