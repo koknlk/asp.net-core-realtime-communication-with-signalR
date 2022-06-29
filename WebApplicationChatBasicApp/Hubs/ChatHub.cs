@@ -7,6 +7,7 @@ using WebApplicationChatBasicApp.Models;
 
 namespace WebApplicationChatBasicApp.Hubs
 {
+    //SignalR hub implemetation(user communication)
     public class ChatHub: Hub
     {
         public async Task SendMessage(Message message) =>
