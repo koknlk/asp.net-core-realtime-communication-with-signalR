@@ -9,13 +9,14 @@ namespace WebApplicationChatBasicApp.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        //Code implementation NB
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
 
        
-
+        //Messaging model
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
