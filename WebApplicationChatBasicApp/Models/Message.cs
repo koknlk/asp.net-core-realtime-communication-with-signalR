@@ -8,6 +8,7 @@ namespace WebApplicationChatBasicApp.Models
 {
     public class Message
     {
+        //message model
         public int Id { get; set; }
         [Required]
         public string UserName { get; set; }
